@@ -16,7 +16,7 @@
     <div class="col">
     </div>
     <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
-        <div class="jumbotron">
+        <div class="jumbotron" id="introduction">
           <h3 class="display-4">Real Shitcoin Price!</h3>
             <p class="lead" id="intro"><img src="btc.gif" /></p>
             <p class="lead" id="intro2"></p>
@@ -35,7 +35,7 @@
           <p>Want to fix something? Send a pull request on <a href="https://github.com/gazhayes/shitcoinprice">Github</a>.
               Got comments, feedback, want me to add something? I'm also on <a href="https://twitter.com/gazhaze">Twitter</a>
               and publish a newsletter that you can sign up for <a href="https://docs.google.com/forms/d/e/1FAIpQLSc22lIXXPDn5jsy6cOFEI5s-Wj2YLMsA2HsPGzdOUwgnvpA9A/viewform?usp=sf_link">here</a>.</p>
-            <button type="button" class="btn btn-primary">Close</button>
+            <button type="button" class="btn btn-primary" id="close">Close</button>
          </div>
        <p>These prices are updated every hour.</p>
         <table id="coinData" class="table table-hover .w-auto">
@@ -56,6 +56,9 @@
       
   </div>
     <script>
+        document.getElementById("close").addEventListener("click", function(){
+  document.getElementById("introduction").innerHTML = "Test";
+});
         fetch('coins.json')
             .then(function (response) {
                 return response.json();
