@@ -18,9 +18,7 @@
     <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
         <div class="jumbotron">
           <h3 class="display-4">Real Shitcoin Price!</h3>
-            <p class="lead">The current price of Ethereum is <span id="eth"><span>, and the price of EOS is <span id="eos"><span>. But this comparison doesn't mean anything - the two currencies have completely different amounts of coins in circulation.</p>
-                <p>You could compare the total market cap of both coins, but that's unintuitive. Or to get a direct comparison you could calculate what EOS would be worth per coin if it had the same number of coins in circulation as ETH: $<span id="etheos"><span></p>
-            <p>BUt what happens when you add more coins to this mix? What do you compare them all to? Bitcoin is the obvious answer.
+            <p class="lead" id="intro"></p>
           <hr class="my-4">
           <p><strong>Here's how we do it:</strong></p>
           <p>\(rsp = {{c_{s}} \over c_{b}}\times {p_s \over p_b}\) <br /> <br />
@@ -68,9 +66,21 @@
             var btcPrice = data.data[0].quote.USD.price;
             var table = document.getElementById("coinData");
             var rowCount = 0;
+            var introInjected = 0;
+            var eth = 0;
+            var eos = 0;
             for (var i = 0; i < data.data.length; i++) {
                 if(data.data[i].name == "Ethereum"){
-                    document.getElementById("eth").textContent = data.data[i].quote.USD.price;
+                   eth = data.data[i].quote.USD.price;
+                };
+                if(data.data[i].name == "EOS"){
+                   eos = data.data[i].quote.USD.price;
+                };
+                if(introInjected == 0) {
+                    if(eos != 0 && eth != 0){
+                        injectIntro(eth, eos, btcCirculation);
+                        introInjected = 1;
+                    }
                 };
                 rowCount = i+1;
                 var row = table.insertRow(i +1);
@@ -89,6 +99,10 @@
             bspCell.innerHTML = ' $0'
             rspcCell.innerHTML = ' -$' + btcPrice;
         }
+        function injectIntro(eth, eos, btcCirculation) {
+            document.getElementById("intro").innerHTML = 'When you buy 1 BTC what you\'re really doing is buying 1/' + btcCirculation +
+                ' (' + (1 / btcCirculation) * 100 + ') of the total coin circulation.';
+        };
     </script>
 </body>
 </html>
