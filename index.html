@@ -78,7 +78,7 @@
                 var rspcCell = row.insertCell(3);
                 nameCell.innerHTML = data.data[i].name;
                 symbolCell.innerHTML = data.data[i].symbol;
-                bspCell.innerHTML = data.data[i].quote.USD.price.toFixed(2);
+                bspCell.innerHTML = ' $' + data.data[i].quote.USD.price.toFixed(2);
                 rspcCell.innerHTML = ' $' + ((data.data[i].circulating_supply / btcCirculation) * data.data[i].quote.USD.price).toFixed(2);
                 }
             var row = table.insertRow(rowCount + 1);
