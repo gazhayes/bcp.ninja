@@ -21,7 +21,16 @@
           <a href="https://github.com/gazhayes/shitcoinprice">Github</a> | <a href="https://twitter.com/gazhaze">Twitter</a>
 </div>
       <p>These prices are updated every hour.</p>
-    <table id="coinData"></table>
+    <table id="coinData" class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Coin Name</th>
+          <th scope="col">Symbol</th>
+          <th scope="col">Real Price</th>
+    </tr>
+      </thead>
+    </table>
+      
   </div>
     <script>
         fetch('coins.json')
@@ -38,7 +47,7 @@
             var btcCirculation = data[0].circulating_supply;
             var table = document.getElementById("coinData");
             for (var i = 0; i < data.length; i++) {
-                var row = table.insertRow(i);
+                var row = table.insertRow(i +1);
                 var nameCell = row.insertCell(0);
                 var symbolCell = row.insertCell(1);
                 var priceCell = row.insertCell(2);
