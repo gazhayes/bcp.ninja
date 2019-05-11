@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -56,8 +55,14 @@
       
   </div>
     <script>
+        var helpDisplay = Cookies.get('close');
+        var introText = '<h3 class="display-4">Real Shitcoin Price!</h3>';
+        if (helpDisplay == 'true'){
+          document.getElementById("introduction").innerHTML = introText;
+        };
         document.getElementById("close").addEventListener("click", function(){
-  document.getElementById("introduction").innerHTML = '<h3 class="display-4">Real Shitcoin Price!</h3>';
+         document.getElementById("introduction").innerHTML = introText;
+            Cookies.set('close', 'true');
 });
         fetch('coins.json')
             .then(function (response) {
