@@ -101,7 +101,7 @@
         }
         function injectIntro(eth, eos, btcCirculation) {
             document.getElementById("intro").innerHTML = 'When you buy 1 BTC what you\'re really doing is buying 1/' + btcCirculation +
-                ' (' + (1 / btcCirculation) * 100 + ') of the total coin circulation.';
+                ' (' + ((1 / btcCirculation) * 100).toFixed(8) + '%) of the total coin circulation.';
         };
     </script>
 </body>
