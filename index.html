@@ -8,15 +8,18 @@
     <title>Shitcoin Price</title>
 </head>
 <body>
-    <h2>Shitcoin Price</h2>
-    <p>Everyone has been doing this wrong for long enough. </p>
-    <p>The price per shitcoin is an irrelevant metric.</p>
-    <p>Here's what actually matters:</p>
-    <p>Take the current circulation of your shitcoin of choice,</p>
-    <p>divide that number by the current circulation of Bitcoin,</p>
-    <p>multiply the result by the price per shitcoin.</p>
-    <p>Stop comparing apples to watermelons, come on people.</p>
+  <div class="container-fluid">
+      <div class="jumbotron">
+  <h1 class="display-4">Shitcoin Price!</h1>
+  <p class="lead">veryone has been doing this wrong for long enough. The price per shitcoin is an irrelevant metric. </p>
+  <hr class="my-4">
+          <p><strong>Here's what actually matters:</strong></p>
+          <p>Real shitcoin price = (current shitcoin circulation / current bitcoin circulation) x current shitcoin price</p>
+          <p>Take the current circulation of your shitcoin of choice, divide that number by the current circulation of Bitcoin, multiply the result by the price per shitcoin.</p>
+          <p>Stop comparing apples to watermelons, come on people.</p>
+</div>
     <div id="coinData"></div>
+  </div>
     <script>
         fetch('coins.json')
             .then(function (response) {
