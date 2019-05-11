@@ -26,7 +26,7 @@
           <p>\(rsp = {{c_{s}} \over c_{b}}\times {p_s \over p_b}\) <br /> <br />
              <i><b>where:</b></i> <br />
                \(rsp\) is the Real Shitcoin Price in USD<br />
-               \(c_{s}\) is the current OR final circulation of the shitcoin in question<br />
+               \(c_{s}\) is the number of coins (shitcoin) currently circulation<br />
                \(c_{b}\) is the current circulation of Bitcoin<br />
                \(p_s\) is the current price of the shitcoin in USD<br />
                \(p_s\) is the current price of Bitcoin in USD<br />
@@ -41,8 +41,7 @@
           <th scope="col">Coin Name</th>
           <th scope="col">Symbol</th>
           <th scope="col">BSP</th>
-          <th scope="col">RSPF (Final)</th>
-          <th scope="col">RSPC (Current)</th> 
+          <th scope="col">RSP</th> 
     </tr>
       </thead>
     </table>
@@ -76,15 +75,13 @@
                 var nameCell = row.insertCell(0);
                 var symbolCell = row.insertCell(1);
                 var bspCell = row.insertCell(2);
-                var rsptCell = row.insertCell(3);
-                var rspcCell = row.insertCell(4);
+                var rspcCell = row.insertCell(3);
                 nameCell.innerHTML = data.data[i].name;
                 symbolCell.innerHTML = data.data[i].symbol;
                 bspCell.innerHTML = data.data[i].quote.USD.price.toFixed(2);
-                rsptCell.innerHTML = ' $' + ((data.data[i].max_supply / btcCirculation) * data.data[i].quote.USD.price).toFixed(2);
                 rspcCell.innerHTML = ' $' + ((data.data[i].circulating_supply / btcCirculation) * data.data[i].quote.USD.price).toFixed(2);
                 }
-            var row = table.insertRow(rowCount);
+            var row = table.insertRow(rowCount + 1);
             var nameCell = row.insertCell(0);
             var symbolCell = row.insertCell(1);
             var priceCell = row.insertCell(2);
