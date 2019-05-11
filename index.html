@@ -40,8 +40,9 @@
         <tr>
           <th scope="col">Coin Name</th>
           <th scope="col">Symbol</th>
-          <th scope="col">BSP (USD)</th>
-          <th scope="col">RSP (USD)</th>
+          <th scope="col">BSP</th>
+          <th scope="col">RSP (Final Circulation)</th>
+          <th scope="col">RSP (Current Circulation)</th> 
     </tr>
       </thead>
     </table>
@@ -74,10 +75,14 @@
                 var row = table.insertRow(i +1);
                 var nameCell = row.insertCell(0);
                 var symbolCell = row.insertCell(1);
-                var priceCell = row.insertCell(2);
+                var bspCell = row.insertCell(2);
+                var rsptCell = row.insertCell(3);
+                var rspcCell = row.insertCell(4);
                 nameCell.innerHTML = data.data[i].name;
                 symbolCell.innerHTML = data.data[i].symbol;
-                priceCell.innerHTML = ' $' + ((data.data[i].circulating_supply / btcCirculation) * data.data[i].quote.USD.price).toFixed(2);
+                bspCell.innerHTML = data.data[i].quote.USD.price).toFixed(2);
+                rsptCell.innerHTML = ' $' + ((data.data[i].max_supply / btcCirculation) * data.data[i].quote.USD.price).toFixed(2);
+                rspcCell.innerHTML = ' $' + ((data.data[i].circulating_supply / btcCirculation) * data.data[i].quote.USD.price).toFixed(2);
                 }
             var row = table.insertRow(rowCount);
             var nameCell = row.insertCell(0);
