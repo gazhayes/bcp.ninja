@@ -28,10 +28,12 @@
                 console.log('error: ' + err);
             });
         function appendData(data) {
+            var btcCirculation = data[0].circulating_supply;
             var mainContainer = document.getElementById("coinData");
             for (var i = 0; i < data.length; i++) {
+                var shitPrice = (data[i].circulating_supply / btcCirculation) * data[i].quote.USD.price;
                 var div = document.createElement("div");
-                div.innerHTML = data[i].name + ' ' + '[' + data[i].symbol + ']';
+                div.innerHTML = data[i].name + ' ' + '[' + data[i].symbol + ']' + ' $' + shitPrice;
                 mainContainer.appendChild(div);
             }
         }
