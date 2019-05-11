@@ -18,12 +18,11 @@
     <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
         <div class="jumbotron">
           <h3 class="display-4">Real Shitcoin Price!</h3>
-          <p class="lead">Y'all been doing this wrong for long enough. <br />
-              The usual way to calculate a shitcoin price is simply using the price for one unit of shitcoin. <br />
-              This price however is <b>not</b> directly comparable with other shitcoins (or Bitcoin) because everything has a different volume of coins in circulation. <br />
-              You could just look at all the prices in BTC instead of USD, but that's unintuitive for most people and they scream "I have a fundamental misunderstanding of what's happening here so only fiat numbers make sense to me!". OK fine, this site is for you.</p>
+            <p class="lead">The current price of Ethereum is <span id="eth"><span>, and the price of EOS is <span id="eos"><span>. But this comparison doesn't mean anything - the two currencies have completely different amounts of coins in circulation.</p>
+                <p>You could compare the total market cap of both coins, but that's unintuitive. Or to get a direct comparison you could calculate what EOS would be worth per coin if it had the same number of coins in circulation as ETH: $<span id="etheos"><span></p>
+            <p>BUt what happens when you add more coins to this mix? What do you compare them all to? Bitcoin is the obvious answer.
           <hr class="my-4">
-          <p><strong>Here's how you're meant to do it:</strong></p>
+          <p><strong>Here's how we do it:</strong></p>
           <p>\(rsp = {{c_{s}} \over c_{b}}\times {p_s \over p_b}\) <br /> <br />
              <i><b>where:</b></i> <br />
                \(rsp\) is the Real Shitcoin Price in USD<br />
@@ -32,7 +31,7 @@
                \(p_s\) is the current price of the shitcoin in USD<br />
                \(p_s\) is the current price of Bitcoin in USD<br />
             </p>
-          <div class="alert alert-warning">Stop comparing apples to watermelons, come on people.</div>
+          <div class="alert alert-warning">Now you can compare apples to apples instead of apples to watermelons!</div>
           <a href="https://github.com/gazhayes/shitcoinprice">Github</a> | <a href="https://twitter.com/gazhaze">Twitter</a>
          </div>
        <p>These prices are updated every hour.</p>
