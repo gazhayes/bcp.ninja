@@ -55,15 +55,16 @@
       
   </div>
     <script>
-        var helpDisplay = Cookies.get('close');
+        var helpDisplay = Cookies.get('helpDisplay');
         var introText = '<h3 class="display-4">Real Shitcoin Price!</h3>';
-        if (helpDisplay == 'true'){
+        if (helpDisplay == 'false'){
           document.getElementById("introduction").innerHTML = introText;
         };
+        if (helpDisplay != 'false'){ 
         document.getElementById("close").addEventListener("click", function(){
          document.getElementById("introduction").innerHTML = introText;
-            Cookies.set('close', 'true');
-});
+            Cookies.set('helpDisplay', 'false');
+})};
         fetch('coins.json')
             .then(function (response) {
                 return response.json();
