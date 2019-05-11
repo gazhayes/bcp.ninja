@@ -38,7 +38,7 @@
             var btcCirculation = data[0].circulating_supply;
             var table = document.getElementById("coinData");
             for (var i = 0; i < data.length; i++) {
-                var row = table.insertRow(0);
+                var row = table.insertRow(i);
                 var nameCell = row.insertCell(0);
                 var symbolCell = row.insertCell(1);
                 var priceCell = row.insertCell(2);
