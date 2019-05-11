@@ -69,6 +69,9 @@
             var table = document.getElementById("coinData");
             var rowCount = 0;
             for (var i = 0; i < data.data.length; i++) {
+                if(data.data[i].name == "Ethereum"){
+                    document.getElementById("eth").textContent = data.data[i].quote.USD.price;
+                };
                 rowCount = i+1;
                 var row = table.insertRow(i +1);
                 var nameCell = row.insertCell(0);
