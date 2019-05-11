@@ -62,19 +62,19 @@
                 console.log('error: ' + err);
             });
         function appendData(data) {
-            var btcCirculation = data[0].circulating_supply;
-            var btcPrice = data[0].quote.USD.price;
+            var btcCirculation = data.data[0].circulating_supply;
+            var btcPrice = data.data[0].quote.USD.price;
             var table = document.getElementById("coinData");
             var rowCount = 0;
-            for (var i = 0; i < data.length; i++) {
+            for (var i = 0; i < data.data.length; i++) {
                 rowCount = i+1;
                 var row = table.insertRow(i +1);
                 var nameCell = row.insertCell(0);
                 var symbolCell = row.insertCell(1);
                 var priceCell = row.insertCell(2);
-                nameCell.innerHTML = data[i].name;
-                symbolCell.innerHTML = data[i].symbol;
-                priceCell.innerHTML = ' $' + ((data[i].circulating_supply / btcCirculation) * data[i].quote.USD.price).toFixed(2);
+                nameCell.innerHTML = data.data[i].name;
+                symbolCell.innerHTML = data.data[i].symbol;
+                priceCell.innerHTML = ' $' + ((data.data[i].circulating_supply / btcCirculation) * data.data[i].quote.USD.price).toFixed(2);
                 }
             var row = table.insertRow(rowCount);
             var nameCell = row.insertCell(0);
