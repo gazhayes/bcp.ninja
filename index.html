@@ -70,7 +70,7 @@
             var rowCount = 0;
             var introInjected = 0;
             var eth = 0;
-            var ethbtc = 0;
+            
             var eos = 0;
             var eosbtc = 0;
             for (var i = 0; i < data.data.length; i++) {
@@ -84,7 +84,7 @@
                 };
                 if(introInjected == 0) {
                     if(eos != 0 && eth != 0){
-                        injectIntro(eth, eos, btcCirculation);
+                        injectIntro(eth, ethbtc, eos, eosbtc, btcCirculation);
                         introInjected = 1;
                     }
                 };
@@ -105,7 +105,7 @@
             bspCell.innerHTML = ' $0'
             rspcCell.innerHTML = ' -$' + btcPrice;
         }
-        function injectIntro(eth, eos, btcCirculation) {
+        function injectIntro(eth, ethbtc, eos, eosbtc, btcCirculation) {
             document.getElementById("intro").innerHTML = 'When you buy 1 BTC what you\'re really doing is buying 1/' + btcCirculation +
                 ' (' + ((1 / btcCirculation) * 100).toFixed(8) + '%) of the total network.';
             document.getElementById("intro2").innerHTML = 'Have you ever wondered what the same ' + ((1 / btcCirculation) * 100).toFixed(8) + '%) ' + 
