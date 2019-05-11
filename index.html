@@ -21,9 +21,13 @@
           <p class="lead">Y'all been doing this wrong for long enough. The price per shitcoin is based on an arbitrary number (coin circulation) an is an irrelevant metric. Now, you could just look at the price in BTC, but that's unintuitive for most people and they scream "but I want to see something in dollars!". OK fine.</p>
           <hr class="my-4">
           <p><strong>Here's how you're meant to do it:</strong></p>
-          <p>\(rsp = {{c_{s}} \over c_{b}}\times {p_s \over p_b}\) <br />
-             <i>where:</i> <br />
-               \(c_{s}\) is the current circulation of the shitcoin in question
+          <p>\(rsp = {{c_{s}} \over c_{b}}\times {p_s \over p_b}\) <br /> <br />
+             <i><b>where:<b></i> <br />
+               \(rsp\) is the Real Shitcoin Price in USD<br />
+               \(c_{s}\) is the current circulation of the shitcoin in question<br />
+               \(c_{b}\) is the current circulation of Bitcoin<br />
+               \(p_s\) is the current price of the shitcoin in USD<br />
+               \(p_s\) is the current price of Bitcoin in USD<br />
             </p>
           <p>Stop comparing apples to watermelons, come on people.</p>
           <a href="https://github.com/gazhayes/shitcoinprice">Github</a> | <a href="https://twitter.com/gazhaze">Twitter</a>
@@ -34,7 +38,7 @@
         <tr>
           <th scope="col">Coin Name</th>
           <th scope="col">Symbol</th>
-          <th scope="col">RSP</th>
+          <th scope="col">RSP (USD)</th>
     </tr>
       </thead>
     </table>
@@ -59,16 +63,26 @@
             });
         function appendData(data) {
             var btcCirculation = data[0].circulating_supply;
+            var btcPrice = data[0].quote.USD.price;
             var table = document.getElementById("coinData");
+            var rowCount = 0;
             for (var i = 0; i < data.length; i++) {
+                rowCount = i+1;
                 var row = table.insertRow(i +1);
                 var nameCell = row.insertCell(0);
                 var symbolCell = row.insertCell(1);
                 var priceCell = row.insertCell(2);
                 nameCell.innerHTML = data[i].name;
                 symbolCell.innerHTML = data[i].symbol;
-                priceCell.innerHTML = ' $' + ((data[i].circulating_supply / btcCirculation) * data[i].quote.USD.price).toFixed(2);        
-            }
+                priceCell.innerHTML = ' $' + ((data[i].circulating_supply / btcCirculation) * data[i].quote.USD.price).toFixed(2);
+                }
+            var row = table.insertRow(rowCount);
+            var nameCell = row.insertCell(0);
+            var symbolCell = row.insertCell(1);
+            var priceCell = row.insertCell(2);
+            nameCell.innerHTML = "JP Morgan Coin";
+            symbolCell.innerHTML = "JPM";
+            priceCell.innerHTML = ' -$' + btcPrice;
         }
     </script>
 </body>
