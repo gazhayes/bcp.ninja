@@ -1,0 +1,17 @@
+[
+    {
+        "id": "1",
+        "name": "Bitcoin",
+        "symbol": "BTC"
+    },
+    {
+        "id": "2",
+        "name": "Litecoin",
+        "symbol": "LTC"
+    },
+    {
+        "id": "3",
+        "name": "Monero",
+        "symbol": "XMR"
+    }
+]
