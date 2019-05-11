@@ -21,7 +21,7 @@
           <a href="https://github.com/gazhayes/shitcoinprice">Github</a> | <a href="https://twitter.com/gazhaze">Twitter</a>
 </div>
       <p>These prices are updated every hour.</p>
-    <div id="coinData"></div>
+    <table id="coinData"></table>
   </div>
     <script>
         fetch('coins.json')
@@ -36,12 +36,15 @@
             });
         function appendData(data) {
             var btcCirculation = data[0].circulating_supply;
-            var mainContainer = document.getElementById("coinData");
+            var table = document.getElementById("coinData");
             for (var i = 0; i < data.length; i++) {
-                var shitPrice = ((data[i].circulating_supply / btcCirculation) * data[i].quote.USD.price).toFixed(2);
-                var div = document.createElement("div");
-                div.innerHTML = data[i].name + ' ' + '[' + data[i].symbol + ']' + ' $' + shitPrice;
-                mainContainer.appendChild(div);
+                var row = table.insertRow(0);
+                var nameCell = row.insertCell(0);
+                var symbolCell = row.insertCell(1);
+                var priceCell = row.insertCell(2);
+                nameCell.innerHTML = data[i].name;
+                symbolCell.innerHTML = data[i].symbol;
+                priceCell.innerHTML = ' $' + ((data[i].circulating_supply / btcCirculation) * data[i].quote.USD.price).toFixed(2);        
             }
         }
     </script>
