@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>JSON Test</title>
+    <title>Shitcoin Price</title>
 </head>
 <body>
-    <div id="myData"></div>
+    <h2>Shitcoin Price</h2>
+    <p>Everyone has been doing this wrong for long enough. </p>
+    <p>The price per shitcoin is an irrelevant metric.</p>
+    <p>Here's what actually matters:</p>
+    <p>Take the current circulation of your shitcoin of choice,</p>
+    <p>divide that number by the current circulation of Bitcoin,</p>
+    <p>multiply the result by the price per shitcoin.</p>
+    <p>Stop comparing apples to watermelons, come on people.</p>
+    <div id="coinData"></div>
     <script>
         fetch('coins.json')
             .then(function (response) {
@@ -20,7 +28,7 @@
                 console.log('error: ' + err);
             });
         function appendData(data) {
-            var mainContainer = document.getElementById("myData");
+            var mainContainer = document.getElementById("coinData");
             for (var i = 0; i < data.length; i++) {
                 var div = document.createElement("div");
                 div.innerHTML = data[i].name + ' ' + '[' + data[i].symbol + ']';
