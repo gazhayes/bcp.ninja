@@ -132,7 +132,7 @@
              Cookies.set('helpDisplay', 'false');
             }}
         function injectIntro(eth, ethbtc, ethcirc, eos, eosbtc, btcCirculation) {
-            document.getElementById("intro0").innerHTML = 'What would happen to altcoin prices if <b>all</b> altcoins had the exact same number of coins in circulation?'
+            document.getElementById("intro0").innerHTML = 'What would happen to altcoin prices if <u>all</u> altcoins had the <u>exact</u> same number of coins in circulation?'
             document.getElementById("intro1").innerHTML = 'When you buy 1 BTC what you\'re really doing is buying 1/' + btcCirculation +
                 ' (' + ((1 / btcCirculation) * 100).toFixed(8) + '%) of the total coins in circulation on the network. But when you buy 1 ETH you\'re buying 1/' + ethcirc + ' (' + ((1/ethcirc) * 100).toFixed(8) + '%). This means that 1 ETH and 1 BTC represent completely different sized shares (or perhaps equity) of the entire network, so the prices should not be directly compared.';
             document.getElementById("intro2").innerHTML = 'In order to really compare prices, you need to know what the price would be if Ethereum had the same number of coins in circulation as Bitcoin (' + btcCirculation + '). The price of ETH would be $' + ethbtc + '. As another example, EOS would be $' + eosbtc + '.';
