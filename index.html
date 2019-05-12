@@ -44,6 +44,9 @@
       
   </div>
     <script>
+        if(Cookies.get('helpDisplay') == 'false') {
+            document.getElementById("introduction").style.display = "none";
+        }
         function toggleHelp() {
           var x = document.getElementById("introduction");
           if (x.style.display === "none") {
