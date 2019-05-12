@@ -62,6 +62,7 @@
         var eos = 0;
         var eosbtc = 0;
         var ethbtc = 0;
+        var ethcirc =0;
         var btcCirculation = 0;
         fetch('coins.json')
             .then(function (response) {
@@ -85,6 +86,7 @@
                 if(data.data[i].name == "Ethereum"){
                    eth = data.data[i].quote.USD.price;
                    ethbtc = ((data.data[i].circulating_supply / btcCirculation) * data.data[i].quote.USD.price).toFixed(2);
+                   ethcirc = data.data[i].circulating_supply.toFixed(0);
                 };
                 if(data.data[i].name == "EOS"){
                    eos = data.data[i].quote.USD.price;
@@ -92,7 +94,7 @@
                 };
                 if(introInjected == 0 && Cookies.get('helpDisplay') != 'false') {
                     if(eos != 0 && eth != 0){
-                        injectIntro(eth, ethbtc, eos, eosbtc, btcCirculation);
+                        injectIntro(eth, ethbtc, ethcirc, eos, eosbtc, btcCirculation);
                         introInjected = 1;
                     }
                 };
@@ -123,18 +125,17 @@
             x.style.display = "block";
             document.getElementById("help").style.display = "none";
             Cookies.set('helpDisplay', 'true');
-            injectIntro(eth, ethbtc, eos, eosbtc, btcCirculation);
+            injectIntro(eth, ethbtc, ethcirc, eos, eosbtc, btcCirculation);
           } else {
              x.style.display = "none";
              document.getElementById("help").style.display = "block";
              Cookies.set('helpDisplay', 'false');
             }}
-        function injectIntro(eth, ethbtc, eos, eosbtc, btcCirculation) {
+        function injectIntro(eth, ethbtc, ethcirc, eos, eosbtc, btcCirculation) {
             document.getElementById("intro0").innerHTML = 'What would happen to altcoin prices if <b>all</b> altcoins had the exact same number of coins in circulation?'
             document.getElementById("intro1").innerHTML = 'When you buy 1 BTC what you\'re really doing is buying 1/' + btcCirculation +
-                ' (' + ((1 / btcCirculation) * 100).toFixed(8) + '%) of the total coins in circulation on the network.';
-            document.getElementById("intro2").innerHTML = 'Have you ever wondered what the same ' + ((1 / btcCirculation) * 100).toFixed(8) + '% ' + 
-                'of the Ethereum or EOS network would cost in comparison? Well, it would cost you about $' + ethbtc + ' for Ethereum or $' + eosbtc + ' for EOS.';
+                ' (' + ((1 / btcCirculation) * 100).toFixed(8) + '%) of the total coins in circulation on the network. But when you buy 1 ETH you\'re buying 1/' + ethcirc + ', so 1 ETH and 1 BTC represent very different sized shares (or perhaps equity) of the entire network.';
+            document.getElementById("intro2").innerHTML = 'If Ethereum had the same number of coins in circulation as Bitcoin (' + btcCirculation + '), the price of ETH would be $' + ethbtc + '. As another example, EOS would be $' + eosbtc + '.';
             document.getElementById("intro3").innerHTML = 'Want to see the same comparison for other coins? Scroll down!';
         };
     </script>
