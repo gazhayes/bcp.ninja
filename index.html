@@ -142,10 +142,10 @@
             }}
         function injectIntro(eth, ethbtc, ethcirc, xrpcirc, eos, eosbtc, btcCirculation) {
             document.getElementById("intro0").innerHTML = 'What would happen to altcoin prices if <u>all</u> altcoins had the <u>exact</u> same number of coins in circulation?'
-            document.getElementById("intro1").innerHTML = 'If you buy 1 ETH, you own 1 out of ' + ethcirc + ' of the total number of coins available. If Ethereum were a company, this would mean you own ' + 
+            document.getElementById("intro1").innerHTML = 'If you buy 1 ETH, you own 1 out of ' + ethcirc + ' (the total number of ETH coins available right now). If Ethereum were a company, this would mean you own ' + 
                 ((1 / ethcirc) * 100).toFixed(10) + '% of the company. By comparison 1 XRP is 1 out of ' + xrpcirc + ' (' + ((1/xrpcirc) * 100).toFixed(10) + '% of the \'company\').';
-            document.getElementById("intro2").innerHTML = 'I made this site so you can compare what the prices of altcoins would look like if 1 coin always represented the same amount of \'shareholding\' in the \'company\'.';
-            document.getElementById("intro3").innerHTML = 'The price of all coins has been converted to the price they would be if they had the exact same circulation (or number of total \'shares\') as Bitcoin.';
+            document.getElementById("intro2").innerHTML = 'I made this site so you can compare what the prices of altcoins would look like if 1 coin <u>always</u> represented the <u>same</u> amount of \'shareholding\' in the \'company\'.';
+            document.getElementById("intro3").innerHTML = 'The price of <u>all</> coins has been converted to the price they <u>would</u> be if they had the <u>exact same circulation</u> (or number of total \'shares\') as Bitcoin.';
         };
     </script>
 </body>
