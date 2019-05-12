@@ -116,9 +116,9 @@
           var x = document.getElementById("introduction");
           if (x.style.display === "none") {
             x.style.display = "block";
-            injectIntro(eth, ethbtc, eos, eosbtc, btcCirculation);
             document.getElementById("help").style.display = "none";
             Cookies.set('helpDisplay', 'true');
+            injectIntro(eth, ethbtc, eos, eosbtc, btcCirculation);
           } else {
              x.style.display = "none";
              document.getElementById("help").style.display = "block";
