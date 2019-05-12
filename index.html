@@ -59,7 +59,7 @@
         var eos = 0;
         var eosbtc = 0;
         var ethbtc = 0;
-        
+        var btcCirculation = 0;
         fetch('coins.json')
             .then(function (response) {
                 return response.json();
@@ -71,7 +71,7 @@
                 console.log('error: ' + err);
             });
         function appendData(data) {
-            var btcCirculation = data.data[0].circulating_supply;
+            btcCirculation = data.data[0].circulating_supply;
             var btcPrice = data.data[0].quote.USD.price;
             var table = document.getElementById("coinData");
             var rowCount = 0;
