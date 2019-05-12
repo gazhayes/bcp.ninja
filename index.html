@@ -25,10 +25,10 @@
     <div class="col">
     </div>
     <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
-        <h3 class="display-4">Bitcoin Comparison Price</h3>
-        
+        <h3>Bitcoin Comparison Price</h3>
         <div class="jumbotron" id="introduction">
-            <p class="lead" id="intro"><img src="btc.gif" /></p>
+            <p class="lead" id="intro0">What if all altcoins had the same number of coins in circulation as Bitcoin?</p>
+            <p class="lead" id="intro1"></p>
             <p class="lead" id="intro2"></p>
             <p class="lead" id="intro3"></p>
           <hr class="my-4">
@@ -130,7 +130,8 @@
              Cookies.set('helpDisplay', 'false');
             }}
         function injectIntro(eth, ethbtc, eos, eosbtc, btcCirculation) {
-            document.getElementById("intro").innerHTML = 'When you buy 1 BTC what you\'re really doing is buying 1/' + btcCirculation +
+            document.getElementById("intro0").innerHTML = 'What if all altcoins had the same number of coins in circulation as Bitcoin?'
+            document.getElementById("intro1").innerHTML = 'When you buy 1 BTC what you\'re really doing is buying 1/' + btcCirculation +
                 ' (' + ((1 / btcCirculation) * 100).toFixed(8) + '%) of the total coins in circulation on the network.';
             document.getElementById("intro2").innerHTML = 'Have you ever wondered what the same ' + ((1 / btcCirculation) * 100).toFixed(8) + '% ' + 
                 'of the Ethereum or EOS network would cost in comparison? Well, it would cost you about $' + ethbtc + ' for Ethereum or $' + eosbtc + ' for EOS.';
