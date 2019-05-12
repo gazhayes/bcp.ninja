@@ -63,6 +63,7 @@
           var x = document.getElementById("introduction");
           if (x.style.display === "none") {
             x.style.display = "block";
+            injectIntro();
             document.getElementById("help").style.display = "none";
             Cookies.set('helpDisplay', 'true');
           } else {
