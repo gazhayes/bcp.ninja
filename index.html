@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="bootstrap.min.css">
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
     <title>Shitcoin Price</title>
 </head>
 <body>
@@ -15,24 +14,14 @@
     <div class="col">
     </div>
     <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
+        <h3 class="display-4">Real Shitcoin Price!</h3>
         <div class="jumbotron" id="introduction">
-          <h3 class="display-4">Real Shitcoin Price!</h3>
             <p class="lead" id="intro"><img src="btc.gif" /></p>
             <p class="lead" id="intro2"></p>
             <p class="lead" id="intro3"></p>
           <hr class="my-4">
-          <p><strong>Here's how we do it:</strong></p>
-          <p>\(rsp = {{c_{s}} \over c_{b}}\times {p_s \over p_b}\) <br /> <br />
-             <i><b>where:</b></i> <br />
-               \(rsp\) is the Real Shitcoin Price in USD<br />
-               \(c_{s}\) is the number of coins (shitcoin) currently circulation<br />
-               \(c_{b}\) is the current circulation of Bitcoin<br />
-               \(p_s\) is the current price of the shitcoin in USD<br />
-               \(p_s\) is the current price of Bitcoin in USD<br />
-            </p>
-          <div class="alert alert-warning">Now you can compare apples to apples instead of apples to watermelons!</div>
-          <p></p>
-            <button type="button" class="btn btn-primary" id="close">Close</button>
+
+            <button type="button" class="btn btn-primary" id="close" oncClick="toggleHelp()">Hide</button>
          </div>
        <p>These prices are updated every hour. Want to fix something? Send a pull request on <a href="https://github.com/gazhayes/shitcoinprice">Github</a>.
               Got comments, feedback, want me to add something? I'm also on <a href="https://twitter.com/gazhaze">Twitter</a>
@@ -55,16 +44,15 @@
       
   </div>
     <script>
-        var helpDisplay = Cookies.get('helpDisplay');
-        var introText = '<h3 class="display-4">Real Shitcoin Price!</h3>';
-        if (helpDisplay == 'false'){
-          document.getElementById("introduction").innerHTML = introText;
-        };
-        if (helpDisplay != 'false'){ 
-        document.getElementById("close").addEventListener("click", function(){
-         document.getElementById("introduction").innerHTML = introText;
-            Cookies.set('helpDisplay', 'false');
-})};
+        function toggleHelp() {
+          var x = document.getElementById("introduction");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+            Cookies.set('helpDisplay', 'true');
+          } else {
+             x.style.display = "none";
+             Cookies.set('helpDisplay', 'false');
+            }}
         fetch('coins.json')
             .then(function (response) {
                 return response.json();
