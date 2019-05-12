@@ -55,22 +55,11 @@
       
   </div>
     <script>
-        if(Cookies.get('helpDisplay') == 'false') {
-            document.getElementById("introduction").style.display = "none";
-            document.getElementById("help").style.display = "block";
-        }
-        function toggleHelp() {
-          var x = document.getElementById("introduction");
-          if (x.style.display === "none") {
-            x.style.display = "block";
-            injectIntro();
-            document.getElementById("help").style.display = "none";
-            Cookies.set('helpDisplay', 'true');
-          } else {
-             x.style.display = "none";
-             document.getElementById("help").style.display = "block";
-             Cookies.set('helpDisplay', 'false');
-            }}
+        var eth = 0;
+        var eos = 0;
+        var eosbtc = 0;
+        var ethbtc = 0;
+        
         fetch('coins.json')
             .then(function (response) {
                 return response.json();
@@ -87,10 +76,6 @@
             var table = document.getElementById("coinData");
             var rowCount = 0;
             var introInjected = 0;
-            var eth = 0;
-            
-            var eos = 0;
-            var eosbtc = 0;
             for (var i = 0; i < data.data.length; i++) {
                 if(data.data[i].name == "Ethereum"){
                    eth = data.data[i].quote.USD.price;
@@ -123,6 +108,22 @@
             bspCell.innerHTML = ' $0'
             rspcCell.innerHTML = ' -$' + btcPrice.toFixed(2);
         }
+        if(Cookies.get('helpDisplay') == 'false') {
+            document.getElementById("introduction").style.display = "none";
+            document.getElementById("help").style.display = "block";
+        }
+        function toggleHelp() {
+          var x = document.getElementById("introduction");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+            injectIntro(eth, ethbtc, eos, eosbtc, btcCirculation);
+            document.getElementById("help").style.display = "none";
+            Cookies.set('helpDisplay', 'true');
+          } else {
+             x.style.display = "none";
+             document.getElementById("help").style.display = "block";
+             Cookies.set('helpDisplay', 'false');
+            }}
         function injectIntro(eth, ethbtc, eos, eosbtc, btcCirculation) {
             document.getElementById("intro").innerHTML = 'When you buy 1 BTC what you\'re really doing is buying 1/' + btcCirculation +
                 ' (' + ((1 / btcCirculation) * 100).toFixed(8) + '%) of the total coins in circulation on the network.';
