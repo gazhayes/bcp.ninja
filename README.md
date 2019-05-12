@@ -1,2 +1,2 @@
-# shitcoinprice
-Shitcoin Prices
+# Contributing
+Send a pull request :)
