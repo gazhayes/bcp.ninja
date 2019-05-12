@@ -47,6 +47,7 @@
     </tr>
       </thead>
     </table>
+        <div id="loading"><img src="loading.gif" /></div>
     </div>
     <div class="col">
    </div>
@@ -63,10 +64,12 @@
         var btcCirculation = 0;
         fetch('coins.json')
             .then(function (response) {
+                document.getElementById("loading").style.display = "block";
                 return response.json();
             })
             .then(function (data) {
                 appendData(data);
+                document.getElementById("loading").style.display = "none";
             })
             .catch(function (err) {
                 console.log('error: ' + err);
