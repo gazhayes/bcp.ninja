@@ -58,11 +58,15 @@
       
   </div>
     <script>
-        var eth = 0;
+        //initialize variables that are needed in multiple functions
+        var eth = 0; //nominal eth price in USD
         var eos = 0;
-        var eosbtc = 0;
-        var ethbtc = 0;
-        var ethcirc =0;
+        var xrp = 0;
+        var eosbtc = 0; 
+        var ethbtc = 0; //ETH price (BCP) in USD
+        var xrpbtc = 0;
+        var ethcirc = 0; //number of ETH currently in circulation
+        var xrpcirc = 0;
         var btcCirculation = 0;
         fetch('coins.json')
             .then(function (response) {
@@ -88,13 +92,18 @@
                    ethbtc = ((data.data[i].circulating_supply / btcCirculation) * data.data[i].quote.USD.price).toFixed(2);
                    ethcirc = data.data[i].circulating_supply.toFixed(0);
                 };
+                if(data.data[i].name == "XRP"){
+                   xrp = data.data[i].quote.USD.price;
+                   xrpbtc = ((data.data[i].circulating_supply / btcCirculation) * data.data[i].quote.USD.price).toFixed(2);
+                   xrpcirc = data.data[i].circulating_supply.toFixed(0);
+                };
                 if(data.data[i].name == "EOS"){
                    eos = data.data[i].quote.USD.price;
                    eosbtc = ((data.data[i].circulating_supply / btcCirculation) * data.data[i].quote.USD.price).toFixed(2);
                 };
                 if(introInjected == 0 && Cookies.get('helpDisplay') != 'false') {
                     if(eos != 0 && eth != 0){
-                        injectIntro(eth, ethbtc, ethcirc, eos, eosbtc, btcCirculation);
+                        injectIntro(eth, ethbtc, ethcirc, xrpcirc, eos, eosbtc, btcCirculation);
                         introInjected = 1;
                     }
                 };
@@ -131,12 +140,12 @@
              document.getElementById("help").style.display = "block";
              Cookies.set('helpDisplay', 'false');
             }}
-        function injectIntro(eth, ethbtc, ethcirc, eos, eosbtc, btcCirculation) {
+        function injectIntro(eth, ethbtc, ethcirc, xrpcirc, eos, eosbtc, btcCirculation) {
             document.getElementById("intro0").innerHTML = 'What would happen to altcoin prices if <u>all</u> altcoins had the <u>exact</u> same number of coins in circulation?'
-            document.getElementById("intro1").innerHTML = 'When you buy 1 BTC what you\'re really doing is buying 1/' + btcCirculation +
-                ' (' + ((1 / btcCirculation) * 100).toFixed(8) + '%) of the total coins in circulation on the network. By comparison 1 ETH is 1/' + ethcirc + ' (' + ((1/ethcirc) * 100).toFixed(8) + '%). This means that 1 ETH and 1 BTC represent <u>completely different</u> sized shares (or \'equity\') in the entire network, so the price of ETH and BTC cannot not be directly compared.';
-            document.getElementById("intro2").innerHTML = 'In order to really compare prices, you need to know what the price would be if Ethereum had the <u>same number of coins in circulation</u> as Bitcoin (' + btcCirculation + ') -  this would mean 1 ETH is $' + ethbtc + '. As another example, EOS would be $' + eosbtc + '.';
-            document.getElementById("intro3").innerHTML = 'Want to see the same comparison for other coins? Scroll down!';
+            document.getElementById("intro1").innerHTML = 'If you buy 1 ETH, you own 1 out of ' + ethcirc + ' of the total number of coins available. If Ethereum were a company, this would mean you own ' + 
+                ((1 / ethcirc) * 100).toFixed(8) + '% of the company. By comparison 1 XRP is 1 out of ' + xrpcirc + ' (' + ((1/xrpcirc) * 100).toFixed(8) + '%). This means that the price of ETH and the price of XRP cannot be directly compared, because the total number of coins in each system are completely different.';
+            document.getElementById("intro2").innerHTML = 'In order to really compare prices between altcoins, you need to know what the price would be if <u>all</u> coins had the <u>exact same number of coins in circulation</u>. Then buying one altcoin would give you the same \'shareholding\' as buying any other altcoin and you can easily compare real prices.;
+            document.getElementById("intro3").innerHTML = 'This is why I made this site. The price of all coins has been converted to the price they would be if they had the exact same circulation (or number of \'shares\' as Bitcoin.';
         };
     </script>
 </body>
