@@ -130,7 +130,7 @@
              Cookies.set('helpDisplay', 'false');
             }}
         function injectIntro(eth, ethbtc, eos, eosbtc, btcCirculation) {
-            document.getElementById("intro0").innerHTML = 'What if all altcoins had the same number of coins in circulation as Bitcoin?'
+            document.getElementById("intro0").innerHTML = 'What would happen to altcoin prices if <b>all</b> altcoins had the exact same number of coins in circulation?'
             document.getElementById("intro1").innerHTML = 'When you buy 1 BTC what you\'re really doing is buying 1/' + btcCirculation +
                 ' (' + ((1 / btcCirculation) * 100).toFixed(8) + '%) of the total coins in circulation on the network.';
             document.getElementById("intro2").innerHTML = 'Have you ever wondered what the same ' + ((1 / btcCirculation) * 100).toFixed(8) + '% ' + 
