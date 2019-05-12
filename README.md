@@ -1,2 +1,2 @@
 # Contributing
-Send a pull request :)
+Just send a pull request :)
