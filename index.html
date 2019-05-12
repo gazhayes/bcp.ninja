@@ -120,7 +120,7 @@
             var rspcCell = row.insertCell(2);
             nameCell.innerHTML = "JP Morgan Coin [JPM]";
             bspCell.innerHTML = ' $0'
-            rspcCell.innerHTML = ' -$' + btcPrice;
+            rspcCell.innerHTML = ' -$' + btcPrice.toFixed(2);
         }
         function injectIntro(eth, ethbtc, eos, eosbtc, btcCirculation) {
             document.getElementById("intro").innerHTML = 'When you buy 1 BTC what you\'re really doing is buying 1/' + btcCirculation +
