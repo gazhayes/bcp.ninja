@@ -82,7 +82,7 @@
                    eos = data.data[i].quote.USD.price;
                    eosbtc = ((data.data[i].circulating_supply / btcCirculation) * data.data[i].quote.USD.price).toFixed(2);
                 };
-                if(introInjected == 0 && helpDisplay != 'false') {
+                if(introInjected == 0 && Cookies.get('helpDisplay') != 'false') {
                     if(eos != 0 && eth != 0){
                         injectIntro(eth, ethbtc, eos, eosbtc, btcCirculation);
                         introInjected = 1;
