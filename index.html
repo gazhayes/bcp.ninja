@@ -28,7 +28,8 @@
         <h2>Bitcoin Comparison Price (BCP)</h2>
         <div class="jumbotron" id="introduction">
             <p class="lead" id="intro0">What would happen to altcoin prices if <u>all</u> altcoins had the <u>exact</u> same number of coins in circulation?</p>
-            <p class="lead" id="intro1"></p>
+            <p class="lead" id="intro1a"></p>
+            <p class="lead" id="intro1b"></p>
             <p class="lead" id="intro2"></p>
             <p class="lead" id="intro3"></p>
           <hr class="my-4">
@@ -142,8 +143,8 @@
             }}
         function injectIntro(eth, ethbtc, ethcirc, xrpcirc, eos, eosbtc, btcCirculation) {
             document.getElementById("intro0").innerHTML = 'What would happen to altcoin prices if <u>all</u> altcoins had the <u>exact</u> same number of coins in circulation?'
-            document.getElementById("intro1").innerHTML = 'If you buy 1 ETH, you own 1 out of ' + ethcirc + ' (the total number of ETH coins available right now). If Ethereum were a company, this would mean you own ' + 
-                ((1 / ethcirc) * 100).toFixed(10) + '% of the company. <p class="lead">By comparison 1 XRP is 1 out of ' + xrpcirc + ' (' + ((1/xrpcirc) * 100).toFixed(10) + '% of the \'company\').</p>';
+            document.getElementById("intro1a").innerHTML = 'If you buy 1 ETH, you own 1 out of ' + ethcirc + ' (the total number of ETH coins available right now). If Ethereum were a company, this would mean you own ' + ((1 / ethcirc) * 100).toFixed(10) + '% of the company.';
+            document.getElementById("intro1b").innerHTML = 'By comparison 1 XRP is 1 out of ' + xrpcirc + ' (' + ((1/xrpcirc) * 100).toFixed(10) + '% of the \'company\').';
             document.getElementById("intro2").innerHTML = 'I made this site so you can compare what the prices of altcoins <u>would</u> look like if 1 coin <u>always</u> represented the <u>same</u> \'shareholding\' in the \'company\'.';
             document.getElementById("intro3").innerHTML = 'As the number of coins in circulation for each different altcoin is arbitrary, I\'ve used the circulation of Bitcoin as a standard. The price of <u>all</u> coins has been converted to the price they <u>would</u> be if they represented the <u>exact same \'shareholding\'</u> as the shareholding that 1 BTC gives you on Bitcoin. This is called the BCP (Bitcoin Comparison Price).';
         };
