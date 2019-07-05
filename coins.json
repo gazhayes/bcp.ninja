@@ -1,9 +1,9 @@
 {
     "status": {
-        "timestamp": "2019-07-05T03:59:45.442Z",
+        "timestamp": "2019-07-05T04:00:05.093Z",
         "error_code": 0,
         "error_message": null,
-        "elapsed": 174,
+        "elapsed": 620,
         "credit_count": 12
     },
     "data": [
@@ -67094,32 +67094,6 @@
                     "percent_change_1h": 0.0145014,
                     "percent_change_24h": 41.4433,
                     "percent_change_7d": -14.4065,
-                    "market_cap": null,
-                    "last_updated": "2019-07-05T03:59:10.000Z"
-                }
-            }
-        },
-        {
-            "id": 3900,
-            "name": "Hellenic Node",
-            "symbol": "HN",
-            "slug": "hellenic-node",
-            "circulating_supply": null,
-            "total_supply": 86577000,
-            "max_supply": null,
-            "date_added": "2019-05-01T00:00:00.000Z",
-            "num_market_pairs": 2,
-            "tags": [],
-            "platform": null,
-            "cmc_rank": 2224,
-            "last_updated": "2019-07-05T03:59:10.000Z",
-            "quote": {
-                "USD": {
-                    "price": 0.000492909218923,
-                    "volume_24h": 0,
-                    "percent_change_1h": 0,
-                    "percent_change_24h": 2.84217e-14,
-                    "percent_change_7d": -60.2431,
                     "market_cap": null,
                     "last_updated": "2019-07-05T03:59:10.000Z"
                 }
